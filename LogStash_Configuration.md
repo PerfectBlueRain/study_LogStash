@@ -1,4 +1,5 @@
 * 서버의 상태 정보를 제공하는 configure 파일
+```{ruby}
 input {
   exec {
     command => "free | grep buffers/cache | awk '{print int($3/($3+$4)*100)}'"
@@ -30,3 +31,4 @@ output {
         index => "server-status-%{+YYYY.MM.dd}"
   }
 }
+```
